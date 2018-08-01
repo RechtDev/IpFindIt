@@ -7,8 +7,7 @@ using System.Text;
 namespace IpFindIt
 {
     class IpCalling
-    {
-        
+    { 
         internal static void CustomIpAddress(string IpAddress)
         {
             string IPGeolocationApiUrl;
