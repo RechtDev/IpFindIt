@@ -12,8 +12,10 @@ namespace IpFindIt
     {
         static void Main(string[] args)
         {
+            //Sets size of Cosnole
             Console.BufferHeight = 42;           
             Console.SetWindowSize(100, 42);
+            //Asks users name. (I think it adds personality)
             Messages.PromptMessage("Hello, Please enter your name.", ConsoleColor.Green);
             string name = Console.ReadLine();
             while (String.IsNullOrEmpty(name))
@@ -22,11 +24,12 @@ namespace IpFindIt
                 name = Console.ReadLine();
 
             }
+            //Menu items count as one Module. 
             bool BackToMenu = true;
             while (BackToMenu)
             {
                 Console.WriteLine($"Hello {name}, welcome!");
-                Console.WriteLine($"Now, {name}, what would you like to do?\n");
+                Console.WriteLine($"Now, {name} what would you like to do?\n");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("1)Find IP Address \n" +
                                   "2)Activate Geo-location services \n" +
@@ -94,10 +97,7 @@ namespace IpFindIt
                             {
                                 return;
                                 break;
-                            }
-
-                            
-                        
+                            }  
                     }
                 }
             }

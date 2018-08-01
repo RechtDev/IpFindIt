@@ -12,13 +12,19 @@ namespace IpFindIt
         {
             string IPGeolocationApiUrl;
             IPGeolocationApiUrl = "http://ip-api.com/json/" + IpAddress;
+            // Tantalizes C# version of GET request
             WebRequest GetJsonApiFeedback;
+            // Makes GET request 
             GetJsonApiFeedback = WebRequest.Create(IPGeolocationApiUrl);
+            // Internalizes Stream object
             Stream ReturnedFeedBack;
             ReturnedFeedBack = GetJsonApiFeedback.GetResponse().GetResponseStream();
+            // Reads the ReturnedFeedBack and stores it in ObjReader 
             StreamReader objReader = new StreamReader(ReturnedFeedBack);
             string IpGeolocationFeedBack = objReader.ReadToEnd();
+            // Deserializing Json into C# class property's
             IpGeolocationMapping ipGeolocationMapping = JsonConvert.DeserializeObject<IpGeolocationMapping>(IpGeolocationFeedBack);
+            // Prints results of Resolved Ip to screen
             Messages.PromptMessage($"Here are the results for IP-Address:{IpAddress}\n");
             Messages.PromptMessage("Results: \n");
             Messages.PromptMessage($"Country: { ipGeolocationMapping.country}\n" +
@@ -26,7 +32,7 @@ namespace IpFindIt
                                    $"City: {ipGeolocationMapping.city}\n" +
                                    $"Zip-Code: {ipGeolocationMapping.zip}\n" +
                                    $"ISP: {ipGeolocationMapping.isp}", ConsoleColor.Magenta);
-
+            // Formats Results so it can be layed out in a .txt file a certain way  
             string ResolvedIps = String.Format("Country: {0,-20}" +
                                                "State: {1,-20}" +
                                                "City: {2,-20}" +
@@ -36,7 +42,7 @@ namespace IpFindIt
                                                                ipGeolocationMapping.city, 
                                                                ipGeolocationMapping.zip,
                                                                ipGeolocationMapping.isp);
-
+            //Writes Results to file on users Desktop
             string UsersPcName = Environment.UserName;
             
             using (System.IO.StreamWriter file =
@@ -50,7 +56,7 @@ namespace IpFindIt
 
     
     }
-
+    // Auto generated class to match JSON feedback
     public class IpGeolocationMapping
     {
         public string status { get; set; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace IpFindIt
 {
+    //Classes for messages that either show errors or intructions.
     static class Messages
     {
         internal static void AlertMessage(string message)
