@@ -47,9 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IpCalling.cs" />
+    <Compile Include="IpCallingClass.cs" />
     <Compile Include="IPFindIt.cs" />
-    <Compile Include="Messages.cs" />
+    <Compile Include="MessagesClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
