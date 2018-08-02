@@ -48,7 +48,7 @@ namespace IpFindIt
             using (System.IO.StreamWriter file =
             new System.IO.StreamWriter(@"C:\Users\" + UsersPcName + @"\Desktop\ResolvedIps.txt", true))
             {
-                file.WriteLine($" IP Address: {IpAddress} {Environment.NewLine} {ResolvedIps} {Environment.NewLine}");
+                file.WriteLine($" IP Address: {ipGeolocationMapping.query} {Environment.NewLine} {ResolvedIps} {Environment.NewLine}");
 
             }
         }
