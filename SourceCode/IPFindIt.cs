@@ -62,7 +62,7 @@ namespace IpFindIt
                                 Messages.PromptMessage("Okay please enter the IP Address you wish you look up.", ConsoleColor.Green);
                                 Messages.PromptMessage("IP Address: **Leave Blank To Check Your IP**", ConsoleColor.Green);
                                 string IpAddress = Console.ReadLine();
-                                IpCalling.CustomIpAddress(IpAddress);
+                                IpCalling.ResolveIp(IpAddress);
                                 Messages.PromptMessage("Would you like to search another IP (Y/N)", ConsoleColor.Green);
                                 string goOn = Console.ReadLine().ToUpper(); ;
 
