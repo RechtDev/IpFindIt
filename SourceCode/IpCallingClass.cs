@@ -25,7 +25,7 @@ namespace IpFindIt
             // Deserializing Json into C# class property's
             IpGeolocationMapping ipGeolocationMapping = JsonConvert.DeserializeObject<IpGeolocationMapping>(IpGeolocationFeedBack);
             // Prints results of Resolved Ip to screen
-            Messages.PromptMessage($"Here are the results for IP-Address:{IpAddress}\n");
+            Messages.PromptMessage($"Here are the results for IP-Address: {IpAddress}\n");
             Messages.PromptMessage("Results: \n");
             Messages.PromptMessage($"Country: { ipGeolocationMapping.country}\n" +
                                    $"State: {ipGeolocationMapping.regionName}\n" +
@@ -48,7 +48,7 @@ namespace IpFindIt
             using (System.IO.StreamWriter file =
             new System.IO.StreamWriter(@"C:\Users\" + UsersPcName + @"\Desktop\ResolvedIps.txt", true))
             {
-                file.WriteLine($"{ResolvedIps}\n");
+                file.WriteLine($" IP Address: {IpAddress} {Environment.NewLine} {ResolvedIps} {Environment.NewLine}");
 
             }
         }
