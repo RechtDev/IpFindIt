@@ -54,53 +54,10 @@ namespace IpFindIt
             }
         }
 
-        internal static void ResolveIp(string IpAddress, char flag)
-        {
-            switch (flag)
-            {
-                case 'f':
-                    {
-                        string IPGeolocationApiUrl;
-                        IPGeolocationApiUrl = "http://ip-api.com/json/" + IpAddress;
-                        // Tantalizes C# version of GET request
-                        WebRequest GetJsonApiFeedback;
-                        // Makes GET request 
-                        GetJsonApiFeedback = WebRequest.Create(IPGeolocationApiUrl);
-                        // Internalizes Stream object
-                        Stream ReturnedFeedBack;
-                        ReturnedFeedBack = GetJsonApiFeedback.GetResponse().GetResponseStream();
-                        // Reads the ReturnedFeedBack and stores it in ObjReader 
-                        StreamReader objReader = new StreamReader(ReturnedFeedBack);
-                        string IpGeolocationFeedBack = objReader.ReadToEnd();
-                        // Deserializing Json into C# class property's
-                        IpGeolocationMapping ipGeolocationMapping = JsonConvert.DeserializeObject<IpGeolocationMapping>(IpGeolocationFeedBack);
-                        // Prints results of Resolved Ip to screen
-                        Messages.PromptMessage($"Here are the results for IP-Address: {IpAddress}\n");
-                        Messages.PromptMessage("Results: \n");
-                        Messages.PromptMessage($"Country: { ipGeolocationMapping.country}\n" +
-                                               $"State: {ipGeolocationMapping.regionName}\n" +
-                                               $"City: {ipGeolocationMapping.city}\n" +
-                                               $"Zip-Code: {ipGeolocationMapping.zip}\n" +
-                                               $"ISP: {ipGeolocationMapping.isp}\n" +
-                                               $"Latitude: {ipGeolocationMapping.lat}\n" +
-                                               $"Longitude: {ipGeolocationMapping.lon}\n" +
-                                               $"Timezone: {ipGeolocationMapping.timezone}\n" +
-                                               $"Organization: {ipGeolocationMapping.org}\n", ConsoleColor.Magenta);
-                        
-                        break;
-                    }
-                default:
-                    break;
-            }
-
-        }
-
-
-
-
-
+      
 
     }
+    
     // Auto generated class to match JSON feedback
     public class IpGeolocationMapping
     {
