@@ -59,12 +59,24 @@ namespace IpFindIt
                         case 1:
                             {
                                 Console.Clear();
-                                Messages.PromptMessage("Okay please enter the IP Address you wish you look up.", ConsoleColor.Green);
-                                Messages.PromptMessage("IP Address: **Leave Blank To Check Your IP**", ConsoleColor.Green);
-                                string IpAddress = Console.ReadLine();
-                                IpCalling.ResolveIp(IpAddress);
+                                Messages.PromptMessage("Okay please enter the IP Address you want to resolve.", ConsoleColor.Green);
+                                Messages.PromptMessage("IP Address: **Leave Blank To Check Your IP** **Add flags to specify search (Type help for list of flags)**\n", ConsoleColor.Green);
+                                string ShowOptions = Console.ReadLine();
+                                
+                                if (ShowOptions == "help")
+                                {
+                                    Messages.PromptMessage("The flags that specify the returned results:\n" +
+                                        "-f: Gives you every type of result there is\n" +
+                                        "-b: Makes a short summery only the important results get displayed", ConsoleColor.White);
+                                }
+                                Messages.PromptMessage("IP Address [space] flag");
+                                string IpFlag = Console.ReadLine();                                                              
+                                string[] SeperationIpFlag = IpFlag.Split(' ');
+                                string IpAddress = SeperationIpFlag[0];
+                                string Flag = SeperationIpFlag[1];
+                                IpCalling.ResolveIp(IpAddress, Flag);
                                 Messages.PromptMessage("Would you like to search another IP (Y/N)", ConsoleColor.Green);
-                                string goOn = Console.ReadLine().ToUpper(); ;
+                                string goOn = Console.ReadLine().ToUpper();
 
                                 while (String.IsNullOrEmpty(goOn))
                                 {
